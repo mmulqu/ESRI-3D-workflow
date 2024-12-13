@@ -1,0 +1,13 @@
+2024-12-13 16:39:00 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 16:39:05 Error on line 236
+
+2024-12-13 16:39:05 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 16:39:05 With error message:  
+
+2024-12-13 16:39:05 ArcPy Error Message:  Failed to execute. Parameters are not valid.
+ERROR 000735: Output Location: Value is required
+Failed to execute (CreateMosaicDataset).
+
+

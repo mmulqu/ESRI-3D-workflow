@@ -1,0 +1,126 @@
+2024-12-13 15:40:06 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 15:40:06 Looking for class codes: 
+
+2024-12-13 15:40:10 Creating Ground Elevation using the following class codes: 2
+
+2024-12-13 15:40:10 Error on line 281
+
+2024-12-13 15:40:10 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 15:40:10 with error message:  TypeError: cannot unpack non-iterable NoneType object
+
+2024-12-13 15:43:09 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 15:43:09 Looking for class codes: 
+
+2024-12-13 15:43:12 Creating Ground Elevation using the following class codes: 2
+
+2024-12-13 15:43:12 Error on line 281
+
+2024-12-13 15:43:12 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 15:43:12 with error message:  TypeError: cannot unpack non-iterable NoneType object
+
+2024-12-13 15:45:23 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 15:45:23 Looking for class codes: 
+
+2024-12-13 15:45:23 Creating Ground Elevation using the following class codes: 2
+
+2024-12-13 15:45:27 Error on line 281
+
+2024-12-13 15:45:27 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 15:45:27 with error message:  TypeError: cannot unpack non-iterable NoneType object
+
+2024-12-13 15:51:27 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 15:51:27 Looking for class codes: 
+
+2024-12-13 15:51:27 Creating Ground Elevation using the following class codes: 2
+
+2024-12-13 15:51:30 Error on line 281
+
+2024-12-13 15:51:30 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 15:51:30 with error message:  TypeError: cannot unpack non-iterable NoneType object
+
+2024-12-13 16:04:15 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 16:04:15 Looking for class codes: 
+
+2024-12-13 16:04:15 Creating Ground Elevation using the following class codes: 2
+
+2024-12-13 16:04:18 Error on line 281
+
+2024-12-13 16:04:18 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 16:04:18 with error message:  TypeError: cannot unpack non-iterable NoneType object
+
+2024-12-13 16:14:07 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 16:14:07 Looking for class codes: 
+
+2024-12-13 16:14:07 Creating Ground Elevation using the following class codes: 2
+
+2024-12-13 16:14:07 Error on line 281
+
+2024-12-13 16:14:07 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 16:14:07 with error message:  TypeError: cannot unpack non-iterable NoneType object
+
+2024-12-13 16:17:06 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 16:17:06 Looking for class codes: 
+
+2024-12-13 16:17:06 Creating Ground Elevation using the following class codes: 2
+
+2024-12-13 16:17:09 Error on line 281
+
+2024-12-13 16:17:09 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 16:17:09 with error message:  TypeError: cannot unpack non-iterable NoneType object
+
+2024-12-13 16:21:05 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 16:21:05 Looking for class codes: 
+
+2024-12-13 16:21:05 Creating Ground Elevation using the following class codes: 2
+
+2024-12-13 16:21:12 Classifying points that are 0.5 below ground and 50 above ground as noise.
+
+2024-12-13 16:21:12 Creating Surface Elevation using the following class codes: [2, 6]
+
+2024-12-13 16:21:18 Creating normalized Surface Elevation using elev_dsm and elev_dtm
+
+2024-12-13 16:21:27 Extract_elevation_from_las completed successfully.  Elapsed time: 21.64 seconds.
+
+2024-12-13 16:22:45 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 16:22:45 Looking for class codes: 
+
+2024-12-13 16:22:46 Creating Ground Elevation using the following class codes: 2
+
+2024-12-13 16:22:52 Classifying points that are 0.5 below ground and 50 above ground as noise.
+
+2024-12-13 16:22:53 Creating Surface Elevation using the following class codes: [2, 6]
+
+2024-12-13 16:22:59 Creating normalized Surface Elevation using elev_dsm and elev_dtm
+
+2024-12-13 16:23:09 Extract_elevation_from_las completed successfully.  Elapsed time: 24.21 seconds.
+
+2024-12-13 16:38:35 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 16:38:36 Looking for class codes: 
+
+2024-12-13 16:38:36 Creating Ground Elevation using the following class codes: 2
+
+2024-12-13 16:38:43 Classifying points that are 0.5 below ground and 50 above ground as noise.
+
+2024-12-13 16:38:44 Creating Surface Elevation using the following class codes: [2, 6]
+
+2024-12-13 16:38:50 Creating normalized Surface Elevation using elev_dsm and elev_dtm
+
+2024-12-13 16:39:00 Extract_elevation_from_las completed successfully.  Elapsed time: 24.22 seconds.
+
