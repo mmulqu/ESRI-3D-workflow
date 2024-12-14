@@ -1,0 +1,9 @@
+*.pyc
+*.pyo
+__pycache__/
+*.gdb/
+*.lasd
+*.tif
+*.lock
+.idea/
+.vscode/

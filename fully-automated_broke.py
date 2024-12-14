@@ -39,6 +39,7 @@ def create_las_dataset(input_las_file, output_lasd, workspace):
         arcpy.AddError(f"Unexpected error: {str(e)}")
         raise
 
+
 def main():
     try:
         # Enable overwriting of outputs
@@ -48,29 +49,20 @@ def main():
         # STEP 0: Set up workspace and input parameters
         # ---------------------------------------------------------------------------
         home_directory = r"G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d"
-        testdata_dir = r"G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d-testdata"
-
-        # Create a proper File Geodatabase if it doesn't exist
-        gdb_name = "fully-automated-3d-esri-testing.gdb"
-        project_ws = os.path.join(testdata_dir, gdb_name)
-
-        if not arcpy.Exists(project_ws):
-            arcpy.AddMessage(f"Creating new File Geodatabase: {project_ws}")
-            arcpy.CreateFileGDB_management(testdata_dir, gdb_name)
+        project_ws = r"G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d-testdata\fully-automated-3d-testing.gdb"
 
         # Set the workspace environment
         arcpy.env.workspace = project_ws
         scratch_ws = arcpy.env.scratchGDB
 
         # Input LAS file path
-        input_las_file = os.path.join(testdata_dir, "19TCG301639last.las")
+        input_las_file = r"G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d-testdata\19TCG301639last.las"
 
         # Create output LAS dataset path
-        las_output_folder = os.path.join(testdata_dir, "las_datasets")
+        las_output_folder = os.path.join(os.path.dirname(project_ws), "las_datasets")
         if not os.path.exists(las_output_folder):
             os.makedirs(las_output_folder)
         output_lasd = os.path.join(las_output_folder, "lidar_data.lasd")
-
 
         # ---------------------------------------------------------------------------
         # STEP 1: Create LAS Dataset
@@ -87,8 +79,7 @@ def main():
         cell_size = "0.3"  # 0.3m cell size as specified
         only_ground_plus_class_code = True
         class_code = 15  # Building class code
-        # Output elevation raster will be created directly in the geodatabase
-        output_elevation_raster_base = os.path.join(project_ws, "elev")  # Full path in geodatabase
+        output_elevation_raster_base = "elev"
         classify_noise = True
         minimum_height = "0.5"
         maximum_height = "50"
@@ -112,30 +103,21 @@ def main():
         )
 
         # ---------------------------------------------------------------------------
-        # ---------------------------------------------------------------------------
         # STEP 3: Create Draft Footprint Raster
         # ---------------------------------------------------------------------------
         from scripts.create_building_mosaic import run as run_building_mosaic
 
         # Set up parameters for building mosaic
-        # Create output folder at the same level as the geodatabase for intermediate rasters
-        testdata_dir = os.path.dirname(project_ws)
-        out_folder = os.path.join(testdata_dir, "building_mosaic_rasters")
+        out_folder = os.path.join(os.path.dirname(project_ws), "building_mosaic_rasters")
         if not os.path.exists(out_folder):
             os.makedirs(out_folder)
-
-        # Define the full path for the mosaic dataset in the geodatabase
-        out_mosaic = os.path.join(project_ws, "building_mosaic")
+        out_mosaic = "building_mosaic"
 
         # Get spatial reference from LAS dataset
         spatial_ref = arcpy.Describe(las_dataset).spatialReference
 
         # Set cell size to 0.6m as per ESRI workflow
         mosaic_cell_size = "0.6 Meters"
-
-        arcpy.AddMessage(f"Current workspace: {arcpy.env.workspace}")
-        arcpy.AddMessage(f"Output folder for intermediate rasters: {out_folder}")
-        arcpy.AddMessage(f"Output mosaic dataset path: {out_mosaic}")
 
         # Run the building mosaic tool
         run_building_mosaic(
@@ -155,31 +137,64 @@ def main():
         try:
             arcpy.AddMessage("Running Focal Statistics...")
 
-            # Input and output paths should be in the geodatabase
-            focal_input = out_mosaic  # Already a full path
+            # Get full path to mosaic dataset and verify it exists
+            full_mosaic_path = os.path.join(project_ws, out_mosaic)
+            if not arcpy.Exists(full_mosaic_path):
+                raise arcpy.ExecuteError(f"Input mosaic dataset {full_mosaic_path} does not exist")
+
+            # Create output path for focal statistics
             out_focal = os.path.join(project_ws, "focal_mosaic")
+            if arcpy.Exists(out_focal):
+                arcpy.Delete_management(out_focal)
 
-            # Define neighborhood as 3x3 rectangle in cell units
-            neighborhood = NbrRectangle(3, 3, "CELL")
-            statistics_type = "MAJORITY"
-            ignore_nodata = "DATA"
+            # Set up focal statistics parameters
+            neighborhood = NbrRectangle(3, 3, "CELL")  # 3x3 cell neighborhood
 
-            # Run Focal Statistics with explicit parameters
+            # Check if input is integer or float to determine valid statistics
+            desc = arcpy.Describe(full_mosaic_path)
+            if desc.pixelType in ['U1', 'U2', 'U4', 'U8', 'S8', 'U16', 'S16', 'U32', 'S32']:
+                # Integer raster - can use MAJORITY
+                statistics_type = "MAJORITY"
+            else:
+                # Float raster - use MEAN instead
+                statistics_type = "MEAN"
+
+            arcpy.AddMessage(f"Using {statistics_type} statistics for focal analysis")
+
+            # Create temporary in memory workspace for processing
+            arcpy.env.workspace = "in_memory"
+
+            # Run Focal Statistics
             focal_result = FocalStatistics(
-                in_raster=focal_input,
+                in_raster=full_mosaic_path,
                 neighborhood=neighborhood,
                 statistics_type=statistics_type,
-                ignore_nodata=ignore_nodata
+                ignore_nodata="DATA"
             )
 
-            # Save the result to the geodatabase
+            # Save the result to geodatabase
             focal_result.save(out_focal)
+
+            # Verify output was created
+            if not arcpy.Exists(out_focal):
+                raise arcpy.ExecuteError(f"Failed to create focal statistics output at {out_focal}")
+
             arcpy.AddMessage("Focal Statistics completed successfully")
+
+            # Reset workspace
+            arcpy.env.workspace = project_ws
 
         except arcpy.ExecuteError:
             arcpy.AddError("Error in Focal Statistics:")
             arcpy.AddError(arcpy.GetMessages(2))
             raise
+        except Exception as e:
+            arcpy.AddError(f"An unexpected error occurred in Focal Statistics: {str(e)}")
+            raise
+
+        # Clear temporary workspace
+        arcpy.Delete_management("in_memory")
+
         # ---------------------------------------------------------------------------
         # STEP 5: Create footprints from raster
         # ---------------------------------------------------------------------------

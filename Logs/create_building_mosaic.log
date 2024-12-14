@@ -11,3 +11,174 @@ ERROR 000735: Output Location: Value is required
 Failed to execute (CreateMosaicDataset).
 
 
+2024-12-13 16:46:11 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 16:46:17 Error on line 243
+
+2024-12-13 16:46:17 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 16:46:17 With error message:  
+
+2024-12-13 16:46:17 ArcPy Error Message:  Failed to execute. Parameters are not valid.
+ERROR 000732: Mosaic Dataset: Dataset G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d-testdata\fully-automated-3d-testing.gdb\building_mosaic does not exist or is not supported
+Failed to execute (AddRastersToMosaicDataset).
+
+
+2024-12-13 16:48:29 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 16:48:35 Error on line 236
+
+2024-12-13 16:48:35 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 16:48:35 With error message:  
+
+2024-12-13 16:48:35 ArcPy Error Message:  Failed to execute. Parameters are not valid.
+ERROR 000735: Output Location: Value is required
+Failed to execute (CreateMosaicDataset).
+
+
+2024-12-13 16:51:09 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 16:51:14 Error on line 236
+
+2024-12-13 16:51:14 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 16:51:14 With error message:  
+
+2024-12-13 16:51:14 ArcPy Error Message:  Failed to execute. Parameters are not valid.
+ERROR 000735: Output Location: Value is required
+Failed to execute (CreateMosaicDataset).
+
+
+2024-12-13 16:53:16 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 16:53:21 Error on line 236
+
+2024-12-13 16:53:21 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 16:53:21 With error message:  
+
+2024-12-13 16:53:21 ArcPy Error Message:  Failed to execute. Parameters are not valid.
+ERROR 000735: Output Location: Value is required
+Failed to execute (CreateMosaicDataset).
+
+
+2024-12-13 16:55:35 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 16:55:40 Error on line 236
+
+2024-12-13 16:55:40 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 16:55:40 With error message:  
+
+2024-12-13 16:55:40 ArcPy Error Message:  Failed to execute. Parameters are not valid.
+ERROR 000735: Output Location: Value is required
+Failed to execute (CreateMosaicDataset).
+
+
+2024-12-13 16:59:27 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 16:59:32 Error on line 236
+
+2024-12-13 16:59:32 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 16:59:32 With error message:  
+
+2024-12-13 16:59:32 ArcPy Error Message:  Failed to execute. Parameters are not valid.
+ERROR 000735: Output Location: Value is required
+Failed to execute (CreateMosaicDataset).
+
+
+2024-12-13 19:51:24 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 19:51:29 Error on line 236
+
+2024-12-13 19:51:29 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 19:51:29 With error message:  
+
+2024-12-13 19:51:29 ArcPy Error Message:  Failed to execute. Parameters are not valid.
+ERROR 000735: Output Location: Value is required
+Failed to execute (CreateMosaicDataset).
+
+
+2024-12-13 19:55:52 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 19:55:58 Error on line 243
+
+2024-12-13 19:55:58 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 19:55:58 With error message:  
+
+2024-12-13 19:55:58 ArcPy Error Message:  Failed to execute. Parameters are not valid.
+ERROR 000732: Mosaic Dataset: Dataset G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d-testdata\fully-automated-3d-testing.gdb\building_mosaic does not exist or is not supported
+Failed to execute (AddRastersToMosaicDataset).
+
+
+2024-12-13 19:58:39 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 19:58:44 Error on line 243
+
+2024-12-13 19:58:44 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 19:58:44 With error message:  
+
+2024-12-13 19:58:44 ArcPy Error Message:  Failed to execute. Parameters are not valid.
+ERROR 000732: Mosaic Dataset: Dataset G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d-testdata\fully-automated-3d-testing.gdb\building_mosaic does not exist or is not supported
+Failed to execute (AddRastersToMosaicDataset).
+
+
+2024-12-13 20:01:44 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 20:01:50 Error on line 236
+
+2024-12-13 20:01:50 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 20:01:50 With error message:  
+
+2024-12-13 20:01:50 ArcPy Error Message:  Failed to execute. Parameters are not valid.
+ERROR 000735: Output Location: Value is required
+Failed to execute (CreateMosaicDataset).
+
+
+2024-12-13 20:10:17 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 20:10:22 Error on line 236
+
+2024-12-13 20:10:22 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 20:10:22 With error message:  
+
+2024-12-13 20:10:22 ArcPy Error Message:  Failed to execute. Parameters are not valid.
+ERROR 000735: Output Location: Value is required
+Failed to execute (CreateMosaicDataset).
+
+
+2024-12-13 20:15:23 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 20:15:28 Error on line 236
+
+2024-12-13 20:15:28 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 20:15:28 With error message:  
+
+2024-12-13 20:15:28 ArcPy Error Message:  Failed to execute. Parameters are not valid.
+ERROR 000735: Output Location: Value is required
+Failed to execute (CreateMosaicDataset).
+
+
+2024-12-13 20:21:44 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-13 20:21:49 Error on line 236
+
+2024-12-13 20:21:49 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-13 20:21:49 With error message:  
+
+2024-12-13 20:21:49 ArcPy Error Message:  Failed to execute. Parameters are not valid.
+ERROR 000735: Output Location: Value is required
+Failed to execute (CreateMosaicDataset).
+
+
+2024-12-13 20:26:06 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
