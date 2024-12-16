@@ -1,0 +1,8 @@
+2024-12-16 13:46:25 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 13:46:25 Error on line 1019
+
+2024-12-16 13:46:25 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-16 13:46:25 with error message:  TypeError: can't multiply sequence by non-int of type 'float'
+

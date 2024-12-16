@@ -12,3 +12,65 @@
 
 2024-12-16 12:15:42 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
 
+2024-12-16 12:37:38 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 13:05:20 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 13:07:37 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 13:10:09 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 13:20:09 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 13:24:55 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 13:27:38 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 13:28:18 Error on line 982
+
+2024-12-16 13:28:18 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-16 13:28:18 with error message:  TypeError: expected string or bytes-like object, got 'float'
+
+2024-12-16 13:41:00 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 13:41:41 Error on line 982
+
+2024-12-16 13:41:41 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-16 13:41:41 with error message:  TypeError: expected string or bytes-like object, got 'float'
+
+2024-12-16 13:45:45 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 13:49:36 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 13:50:17 Error on line 982
+
+2024-12-16 13:50:17 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-16 13:50:17 with error message:  TypeError: expected string or bytes-like object, got 'float'
+
+2024-12-16 13:59:48 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 14:00:29 Error on line 982
+
+2024-12-16 14:00:29 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-16 14:00:29 with error message:  TypeError: expected string or bytes-like object, got 'float'
+
+2024-12-16 14:04:31 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 14:05:12 Error on line 982
+
+2024-12-16 14:05:12 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-16 14:05:12 with error message:  TypeError: expected string or bytes-like object, got 'float'
+
+2024-12-16 14:19:14 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 14:19:53 Error on line 982
+
+2024-12-16 14:19:53 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-16 14:19:53 with error message:  TypeError: expected string or bytes-like object, got 'float'
+
