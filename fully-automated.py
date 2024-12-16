@@ -39,6 +39,7 @@ def create_las_dataset(input_las_file, output_lasd, workspace):
         arcpy.AddError(f"Unexpected error: {str(e)}")
         raise
 
+
 def main():
     try:
         # Enable overwriting of outputs
@@ -70,7 +71,6 @@ def main():
         if not os.path.exists(las_output_folder):
             os.makedirs(las_output_folder)
         output_lasd = os.path.join(las_output_folder, "lidar_data.lasd")
-
 
         # ---------------------------------------------------------------------------
         # STEP 1: Create LAS Dataset
@@ -111,7 +111,6 @@ def main():
             debug=debug
         )
 
-        # ---------------------------------------------------------------------------
         # ---------------------------------------------------------------------------
         # STEP 3: Create Draft Footprint Raster
         # ---------------------------------------------------------------------------
@@ -180,6 +179,10 @@ def main():
             arcpy.AddError("Error in Focal Statistics:")
             arcpy.AddError(arcpy.GetMessages(2))
             raise
+        except Exception as e:
+            arcpy.AddError(f"An unexpected error occurred in Focal Statistics: {str(e)}")
+            raise
+
         # ---------------------------------------------------------------------------
         # STEP 5: Create footprints from raster
         # ---------------------------------------------------------------------------
@@ -187,53 +190,74 @@ def main():
 
         arcpy.AddMessage("Creating footprints from raster...")
 
-        # Parameters from ESRI workflow
-        min_area = "32 SquareMeters"
-        split_features = None
-        simplify_tolerance = "0.3 Meters"
-        output_poly = "final_footprints"
+        # Make sure input raster path is fully qualified
+        in_focal_raster = os.path.join(project_ws, "focal_mosaic")
+        output_poly = os.path.join(project_ws, "final_footprints")
+
+        # Add debug messages
+        arcpy.AddMessage(f"Input focal raster path: {in_focal_raster}")
+        arcpy.AddMessage(f"Output footprints path: {output_poly}")
+
+        # Parameters from ESRI workflow - matched to successful manual execution and proper unit syntax
+        min_area = "32 SquareMeters"  # Correct syntax
+        simplify_tolerance = "1.5 Meters"
 
         # Default parameters for various building types
         reg_circles = True
-        circle_min_area = "100 SquareMeters"
-        min_compactness = 0.75
-        circle_tolerance = "2 Meters"
+        circle_min_area = "4000 SquareFeetInt"  # Changed from SquareFeet to SquareFeetInt
+        min_compactness = 0.85
+        circle_tolerance = "10 Feet"
 
         # Building size parameters
-        lg_reg_method = "ORTHO"
-        lg_min_area = "500 SquareMeters"
-        lg_tolerance = "2 Meters"
-        med_reg_method = "ORTHO"
-        med_min_area = "200 SquareMeters"
-        med_tolerance = "1 Meters"
-        sm_reg_method = "ORTHO"
-        sm_tolerance = "0.5 Meters"
+        lg_reg_method = "ANY_ANGLE"
+        lg_min_area = "25000 SquareFeetInt"  # Changed from SquareFeet to SquareFeetInt
+        lg_tolerance = "2 Feet"
+        med_reg_method = "RIGHT_ANGLES_AND_DIAGONALS"
+        med_min_area = "5000 SquareFeetInt"  # Changed from SquareFeet to SquareFeetInt
+        med_tolerance = "4 Feet"
+        sm_reg_method = "RIGHT_ANGLES"
+        sm_tolerance = "4 Feet"
 
-        # Run the footprints from raster tool
-        run_footprints_from_raster(
-            home_directory=home_directory,
-            project_ws=project_ws,
-            in_raster=out_focal,
-            min_area=min_area,
-            split_features=split_features,
-            simplify_tolerance=simplify_tolerance,
-            output_poly=output_poly,
-            reg_circles=reg_circles,
-            circle_min_area=circle_min_area,
-            min_compactness=min_compactness,
-            circle_tolerance=circle_tolerance,
-            lg_reg_method=lg_reg_method,
-            lg_min_area=lg_min_area,
-            lg_tolerance=lg_tolerance,
-            med_reg_method=med_reg_method,
-            med_min_area=med_min_area,
-            med_tolerance=med_tolerance,
-            sm_reg_method=sm_reg_method,
-            sm_tolerance=sm_tolerance,
-            debug=debug
-        )
+        try:
+            # Verify input raster exists
+            if not arcpy.Exists(in_focal_raster):
+                arcpy.AddError(f"Input focal raster does not exist: {in_focal_raster}")
+                raise ValueError(f"Input raster not found: {in_focal_raster}")
 
-        arcpy.AddMessage("Building footprints created successfully")
+
+            # Run the footprints from raster tool
+            run_footprints_from_raster(
+                home_directory=home_directory,
+                project_ws=project_ws,
+                in_raster=in_focal_raster,
+                min_area=min_area,
+                split_features="",  # Add back with empty string
+                simplify_tolerance=simplify_tolerance,  # Removed split_features parameter
+                output_poly=output_poly,
+                reg_circles=reg_circles,
+                circle_min_area=circle_min_area,
+                min_compactness=min_compactness,
+                circle_tolerance=circle_tolerance,
+                lg_reg_method=lg_reg_method,
+                lg_min_area=lg_min_area,
+                lg_tolerance=lg_tolerance,
+                med_reg_method=med_reg_method,
+                med_min_area=med_min_area,
+                med_tolerance=med_tolerance,
+                sm_reg_method=sm_reg_method,
+                sm_tolerance=sm_tolerance,
+                debug=debug
+            )
+
+            arcpy.AddMessage("Building footprints created successfully")
+
+        except arcpy.ExecuteError as e:
+            arcpy.AddError(f"ArcPy error in footprints creation: {str(e)}")
+            arcpy.AddError(arcpy.GetMessages(2))
+            raise
+        except Exception as e:
+            arcpy.AddError(f"Error in footprints creation: {str(e)}")
+            raise
 
     except arcpy.ExecuteError:
         arcpy.AddError("Error in process:")
