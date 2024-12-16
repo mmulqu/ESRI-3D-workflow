@@ -115,6 +115,16 @@ def main():
         # STEP 3: Create Draft Footprint Raster
         # ---------------------------------------------------------------------------
         from scripts.create_building_mosaic import run as run_building_mosaic
+        # Get spatial reference from LAS dataset and store it in a variable
+        las_spatial_ref = arcpy.Describe(las_dataset).spatialReference
+        arcpy.AddMessage(f"Using spatial reference from LAS dataset: {las_spatial_ref.name}")
+
+        # Set environment settings
+        arcpy.env.cellSize = "0.6 Meters"
+        arcpy.env.outputCoordinateSystem = las_spatial_ref
+
+        # Set cell size to 0.6m as per ESRI workflow
+        mosaic_cell_size = "0.6 Meters"
 
         # Set up parameters for building mosaic
         # Create output folder at the same level as the geodatabase for intermediate rasters
@@ -204,16 +214,16 @@ def main():
 
         # Default parameters for various building types
         reg_circles = True
-        circle_min_area = "4000 SquareFeetInt"  # Changed from SquareFeet to SquareFeetInt
+        circle_min_area = "4000 SquareFeet"  # Changed from SquareFeet to SquareFeetInt
         min_compactness = 0.85
         circle_tolerance = "10 Feet"
 
         # Building size parameters
         lg_reg_method = "ANY_ANGLE"
-        lg_min_area = "25000 SquareFeetInt"  # Changed from SquareFeet to SquareFeetInt
+        lg_min_area = "25000 SquareFeet"  # Changed from SquareFeet to SquareFeetInt
         lg_tolerance = "2 Feet"
         med_reg_method = "RIGHT_ANGLES_AND_DIAGONALS"
-        med_min_area = "5000 SquareFeetInt"  # Changed from SquareFeet to SquareFeetInt
+        med_min_area = "5000 SquareFeet"  # Changed from SquareFeet to SquareFeetInt
         med_tolerance = "4 Feet"
         sm_reg_method = "RIGHT_ANGLES"
         sm_tolerance = "4 Feet"
