@@ -99,7 +99,7 @@ def main():
         output_elevation_raster_base = os.path.join(project_ws, "elev")
 
         # Additional parameters for noise classification and height thresholds
-        classify_noise = True
+        classify_noise = False
         minimum_height = "0.5"  # Minimum building height to consider
         maximum_height = "50"  # Maximum reasonable building height
         processing_extent = "#"
@@ -281,62 +281,49 @@ def main():
 
         # ---------------------------------------------------------------------------
         # STEP 6: Segment Roofs
-        # ---------------------------------------------------------------------------
-        # After creating basic building footprints, we now analyze the roof structures.
-        # This step uses the DSM (showing roof shapes) and our footprints to identify
-        # distinct roof segments based on elevation patterns.
-
         from scripts.roof_part_segmentation import run as run_segment_roof
-        dsm_path = str(os.path.join(project_ws, "elev_dsm"))
-        arcpy.AddMessage("Segmenting roofs...")
 
-        # Reference the elevation surfaces we created in Step 2
-        # The DSM captures roof shapes, while nDSM shows height above ground
+        arcpy.AddMessage("Starting roof segmentation process...")
+
+        # Set up paths
+        roof_segments_folder = os.path.join(home_directory, "roof_forms")
+        if not os.path.exists(roof_segments_folder):
+            os.makedirs(roof_segments_folder)
+            arcpy.AddMessage(f"Created roof forms folder at: {roof_segments_folder}")
+
+        # Define inputs and outputs
         dsm_path = os.path.join(project_ws, "elev_dsm")
-        dtm_path = os.path.join(project_ws, "elev_dtm")
-        ndsm_path = os.path.join(project_ws, "elev_ndsm")
-
-        # Define output path for the segmented roof features
-        output_segments = os.path.join(project_ws, "roof_segments")
-
-        # Log our paths for debugging
-        arcpy.AddMessage(f"Using DSM from: {dsm_path}")
-        arcpy.AddMessage(f"Using nDSM from: {ndsm_path}")
-        arcpy.AddMessage(f"Output segments path: {output_segments}")
-
-        # Set segmentation parameters based on ESRI recommendations
-        # These parameters control how finely we divide roof surfaces
-        spectral_detail = 15.5  # Controls sensitivity to elevation changes
-        spatial_detail = 15  # Controls minimum segment size
-        min_segment_size = 10  # Minimum number of cells for a valid segment
+        roof_segments = os.path.join(project_ws, "roof_segments")
 
         try:
-            # Run the roof segmentation process
-            # This tool analyzes elevation patterns to identify distinct roof planes
-            # Run the roof segmentation process
-            # STEP 6: Segment Roofs
-            # Fix in Roof Segmentation Parameters
-            # Define the path to the final footprints from the previous step
-            final_footprints = os.path.join(project_ws, "final_footprints")  # Fully qualified path
-
-            # Output path for segmented roofs
-            output_segments = os.path.join(project_ws, "roof_segments")
-
-            # Call the roof segmentation function
+            # Run segmentation with parameters matching the tool's expected types
             run_segment_roof(
                 home_directory=home_directory,
                 project_ws=project_ws,
-                features=final_footprints,  # Use the full feature path here
-                dsm=dsm_path,
-                spectral_detail=15.5,
-                spatial_detail=15,
-                minimum_segment_size=10,
-                regularization_tolerance="1.5",
-                flat_only=False,
-                min_slope=10,
-                output_segments_ui=output_segments,
-                debug=debug
+                features=output_poly,  # Path to footprints
+                dsm=dsm_path,  # Path to DSM
+                spectral_detail="15.5",  # Keep as string
+                spatial_detail="15",  # Keep as string
+                minimum_segment_size=10,  # Number (not string)
+                regularization_tolerance="1.5",  # Keep as string
+                flat_only=False,  # Boolean (not string)
+                min_slope=10,  # Number (not string)
+                output_segments_ui=roof_segments,
+                debug=1  # Number
             )
+
+            # Verify outputs
+            segmented_output = roof_segments + "_segmented"
+            if not arcpy.Exists(segmented_output):
+                arcpy.AddError(f"Segmentation failed to create output: {segmented_output}")
+                raise ValueError("Segmentation output not created")
+
+            # Expected intermediate outputs in Analysis.gdb
+            analysis_outputs = ['clip_dsm', 'clip_slope', 'sms_dsm']
+            analysis_gdb = os.path.join(home_directory, "Analysis.gdb")
+            for output in analysis_outputs:
+                if not arcpy.Exists(os.path.join(analysis_gdb, output)):
+                    arcpy.AddWarning(f"Note: Expected intermediate output not found: {output}")
 
             arcpy.AddMessage("Roof segmentation completed successfully")
 
@@ -349,54 +336,56 @@ def main():
             raise
 
         # ---------------------------------------------------------------------------
+        # ---------------------------------------------------------------------------
         # STEP 7: Extract Roof Forms
         # ---------------------------------------------------------------------------
-        # This final step analyzes the roof segments to determine overall roof shape
-        # (e.g., gabled, hipped, flat) and calculates key measurements like height
-        # and slope direction.
-
         from scripts.extract_roof_form import run as run_extract_roof_form
 
-        arcpy.AddMessage("Extracting roof forms...")
+        arcpy.AddMessage("Starting roof form extraction...")
 
-        # Define output path for the final roof form features
+        # The input is the segmented output from Step 6
+        segmented_roofs = os.path.join(project_ws, "roof_segments_segmented")
+
+        # Define paths to our elevation surfaces
+        dsm_path = os.path.join(project_ws, "elev_dsm")
+        dtm_path = os.path.join(project_ws, "elev_dtm")
+        ndsm_path = os.path.join(project_ws, "elev_ndsm")
+
+        # Define output path
         output_roofforms = os.path.join(project_ws, "roof_forms")
 
-        # Log key information for debugging
-        arcpy.AddMessage(f"Input segments path: {output_segments}")
+        # Log our paths
+        arcpy.AddMessage(f"Input segmented roofs path: {segmented_roofs}")
         arcpy.AddMessage(f"Output roof forms path: {output_roofforms}")
 
         try:
-            # Run the roof form extraction
-            # Ensure all parameters are initialized and converted to strings
-            min_flat_roof_area = str(min_flat_roof_area or "32")
-            min_slope_roof_area = str(min_slope_roof_area or "32")
-            min_roof_height = str(min_roof_height or "0.5")
-            simplify_tolerance = str(simplify_tolerance or "0.3")
+            # Verify inputs exist
+            if not arcpy.Exists(segmented_roofs):
+                arcpy.AddError(f"Segmented roofs file not found at: {segmented_roofs}")
+                raise ValueError(f"Input segmented roofs file not found: {segmented_roofs}")
 
-            # Add debug messages
-            arcpy.AddMessage(f"Using min_flat_roof_area: {min_flat_roof_area}")
-            arcpy.AddMessage(f"Using min_slope_roof_area: {min_slope_roof_area}")
-            arcpy.AddMessage(f"Using min_roof_height: {min_roof_height}")
-            arcpy.AddMessage(f"Using simplify_tolerance: {simplify_tolerance}")
-
-            # Call the roof form extraction
+            # Run roof form extraction with parameters matching tool expectations
             run_extract_roof_form(
                 home_directory=home_directory,
                 project_ws=project_ws,
-                buildings_layer=f"{output_segments}_segmented",
-                dsm=dsm_path,
-                dtm=dtm_path,
-                ndsm=ndsm_path,
-                flat_roofs=False,
-                min_flat_roof_area=min_flat_roof_area,
-                min_slope_roof_area=min_slope_roof_area,
-                min_roof_height=min_roof_height,
-                output_buildings=output_roofforms,
-                simplify_buildings=True,
-                simplify_tolerance=simplify_tolerance,
-                debug=debug
+                buildings_layer=segmented_roofs,  # Feature layer/path
+                dsm=dsm_path,  # Path as string
+                dtm=dtm_path,  # Path as string
+                ndsm=ndsm_path,  # Path as string
+                flat_roofs=False,  # Boolean value
+                min_flat_roof_area="32",  # String
+                min_slope_roof_area="32",  # String
+                min_roof_height="0.5",  # String
+                output_buildings=output_roofforms,  # Path as string
+                simplify_buildings="true",  # String (not boolean)
+                simplify_tolerance="0.3",  # String
+                debug=1  # Number
             )
+
+            # Verify the output was created
+            if not arcpy.Exists(output_roofforms):
+                arcpy.AddError(f"Roof form extraction failed to create output: {output_roofforms}")
+                raise ValueError("Roof form output not created")
 
             arcpy.AddMessage("Roof form extraction completed successfully")
 
@@ -408,12 +397,12 @@ def main():
             arcpy.AddError(f"Error in roof form extraction: {str(e)}")
             raise
 
+    # These are the except blocks for the main try block that started at the beginning of main()
     except arcpy.ExecuteError:
         arcpy.AddError("Error in process:")
         arcpy.AddError(arcpy.GetMessages(2))
     except Exception as e:
         arcpy.AddError(f"An unexpected error occurred: {str(e)}")
-
 
 if __name__ == "__main__":
     main()

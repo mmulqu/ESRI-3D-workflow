@@ -680,3 +680,101 @@
 
 2024-12-16 14:18:49 Extract_elevation_from_las completed successfully.  Elapsed time: 25.31 seconds.
 
+2024-12-16 18:08:35 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 18:08:35 Looking for class codes: 
+
+2024-12-16 18:08:36 Creating Ground Elevation using the following class codes: 2
+
+2024-12-16 18:08:43 Classifying points that are 0.5 below ground and 50 above ground as noise.
+
+2024-12-16 18:08:44 Creating Surface Elevation using the following class codes: [2, 6]
+
+2024-12-16 18:08:50 Creating normalized Surface Elevation using elev_dsm and elev_dtm
+
+2024-12-16 18:09:01 Extract_elevation_from_las completed successfully.  Elapsed time: 25.27 seconds.
+
+2024-12-16 18:38:59 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 18:38:59 Looking for class codes: 
+
+2024-12-16 18:39:00 Creating Ground Elevation using the following class codes: 2
+
+2024-12-16 18:39:06 Classifying points that are 0.5 below ground and 50 above ground as noise.
+
+2024-12-16 18:39:08 Creating Surface Elevation using the following class codes: [2, 6]
+
+2024-12-16 18:39:14 Creating normalized Surface Elevation using elev_dsm and elev_dtm
+
+2024-12-16 18:39:24 Extract_elevation_from_las completed successfully.  Elapsed time: 25.38 seconds.
+
+2024-12-16 20:05:02 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 20:05:02 Looking for class codes: 
+
+2024-12-16 20:05:03 Creating Ground Elevation using the following class codes: 2
+
+2024-12-16 20:05:10 Classifying points that are 0.5 below ground and 50 above ground as noise.
+
+2024-12-16 20:05:11 Creating Surface Elevation using the following class codes: [2, 6]
+
+2024-12-16 20:05:17 Creating normalized Surface Elevation using elev_dsm and elev_dtm
+
+2024-12-16 20:05:27 Extract_elevation_from_las completed successfully.  Elapsed time: 25.4 seconds.
+
+2024-12-16 20:09:23 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 20:09:23 Looking for class codes: 
+
+2024-12-16 20:09:24 Creating Ground Elevation using the following class codes: 2
+
+2024-12-16 20:09:31 Classifying points that are 0.5 below ground and 50 above ground as noise.
+
+2024-12-16 20:09:32 Creating Surface Elevation using the following class codes: [2, 6]
+
+2024-12-16 20:09:38 Creating normalized Surface Elevation using elev_dsm and elev_dtm
+
+2024-12-16 20:09:49 Extract_elevation_from_las completed successfully.  Elapsed time: 25.47 seconds.
+
+2024-12-16 20:14:31 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 20:14:31 Looking for class codes: 
+
+2024-12-16 20:14:32 Creating Ground Elevation using the following class codes: 2
+
+2024-12-16 20:14:39 Classifying points that are 0.5 below ground and 50 above ground as noise.
+
+2024-12-16 20:14:40 Creating Surface Elevation using the following class codes: [2, 6]
+
+2024-12-16 20:14:46 Creating normalized Surface Elevation using elev_dsm and elev_dtm
+
+2024-12-16 20:14:57 Extract_elevation_from_las completed successfully.  Elapsed time: 25.39 seconds.
+
+2024-12-16 20:36:33 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 20:36:33 Looking for class codes: 
+
+2024-12-16 20:36:34 Creating Ground Elevation using the following class codes: 2
+
+2024-12-16 20:36:40 Classifying points that are 0.5 below ground and 50 above ground as noise.
+
+2024-12-16 20:36:42 Creating Surface Elevation using the following class codes: [2, 6]
+
+2024-12-16 20:36:47 Creating normalized Surface Elevation using elev_dsm and elev_dtm
+
+2024-12-16 20:36:58 Extract_elevation_from_las completed successfully.  Elapsed time: 25.39 seconds.
+
+2024-12-17 08:28:06 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-17 08:28:06 Looking for class codes: 
+
+2024-12-17 08:28:06 Creating Ground Elevation using the following class codes: 2
+
+2024-12-17 08:28:13 Classifying points that are 0.5 below ground and 50 above ground as noise.
+
+2024-12-17 08:28:13 Creating Surface Elevation using the following class codes: [2, 6]
+
+2024-12-17 08:28:19 Creating normalized Surface Elevation using elev_dsm and elev_dtm
+
+2024-12-17 08:28:28 Extract_elevation_from_las completed successfully.  Elapsed time: 22.17 seconds.
+

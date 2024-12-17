@@ -6,3 +6,35 @@
 
 2024-12-16 13:46:25 with error message:  TypeError: can't multiply sequence by non-int of type 'float'
 
+2024-12-16 18:40:24 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 18:40:24 Error on line 1019
+
+2024-12-16 18:40:24 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-16 18:40:24 with error message:  TypeError: can't multiply sequence by non-int of type 'float'
+
+2024-12-16 20:16:01 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 20:16:01 Error on line 1019
+
+2024-12-16 20:16:01 Error in file name:  G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\scripts\bm_common_lib.py
+
+2024-12-16 20:16:01 with error message:  TypeError: can't multiply sequence by non-int of type 'float'
+
+2024-12-16 20:37:58 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-16 21:23:18 Deleting intermediate data...
+
+2024-12-17 08:29:30 Logging set up.  Log location: G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\Logs
+
+2024-12-17 09:15:31 Deleting intermediate data...
+
+2024-12-17 09:20:58 --------------------------
+
+2024-12-17 09:20:58 Executing get_z_unit...
+
+2024-12-17 09:20:58 Function get_z_unit completed successfully.  Elapsed time: 0.02 seconds.
+
+2024-12-17 09:20:58 Can't find G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\layer_files\LOD2BuildingShells_meters.lyrx in G:\MMULQUEEN\Buildings3D\Automate_esri_new\fully-automated-3d\layer_files
+
